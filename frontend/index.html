@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Detection - Farm Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+        
+        <!-- Dashboard Screen -->
+        <div class="screen" id="dashboard-screen">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1>Farm Dashboard</h1>
+                    <div class="header-icons">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Weather Card -->
+                <div class="weather-card">
+                    <div class="weather-header">
+                        <h2>Today's Weather</h2>
+                        <div class="weather-temp">28°C</div>
+                        <p>Sunny, Light Breeze</p>
+                        <p>Humidity: 65%</p>
+                        <p class="monsoon-alert">Monsoon likely in 3 days</p>
+                    </div>
+                    <div class="weather-forecast">
+                        <div class="forecast-day">
+                            <i class="fas fa-sun"></i>
+                            <span>Today</span>
+                            <span>28°</span>
+                        </div>
+                        <div class="forecast-day">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span>Tomorrow</span>
+                            <span>26°</span>
+                        </div>
+                        <div class="forecast-day">
+                            <i class="fas fa-cloud"></i>
+                            <span>Day After</span>
+                            <span>24°</span>
+                        </div>
+                        <div class="forecast-day">
+                            <i class="fas fa-cloud-rain"></i>
+                            <span>Thursday</span>
+                            <span>22°</span>
+                        </div>
+                        <div class="forecast-day">
+                            <i class="fas fa-cloud-showers-heavy"></i>
+                            <span>Friday</span>
+                            <span>20°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crop Prices -->
+                <div class="crop-prices">
+                    <div class="price-item">
+                        <span>Soybean</span>
+                        <span class="price">Rs 3,900</span>
+                        <span class="change positive">+2.1%</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Wheat</span>
+                        <span class="price">Rs 2,150</span>
+                    </div>
+                </div>
+
+                <!-- Quick Access -->
+                <div class="quick-access">
+                    <h2>Quick Access</h2>
+                    <div class="access-grid">
+                        <button class="access-btn soil-scan" onclick="showScreen('scanner-screen')">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Soil Scan</span>
+                        </button>
+                        <button class="access-btn crop-suggestion" onclick="showScreen('crop-screen')">
+                            <i class="fas fa-leaf"></i>
+                            <span>Crop Suggestion</span>
+                        </button>
+                        <button class="access-btn pesticide-guide" onclick="showScreen('health-screen')">
+                            <i class="fas fa-bug"></i>
+                            <span>Pesticide Guide</span>
+                        </button>
+                                            </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Scanner Screen -->
+        <div class="screen hidden" id="scanner-screen">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
+                    <h1>Disease Detection Scanner</h1>
+                </div>
+            </header>
+
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn" data-tab="scan">Scan</button>
+                <button class="tab-btn" data-tab="results">Results</button>
+                <button class="tab-btn active" data-tab="history">History</button>
+            </div>
+
+            <!-- Tab Content -->
+            <main class="main-content">
+                <!-- Scan Tab -->
+                <div class="tab-content hidden" id="scan-tab">
+                    <div class="scan-container">
+                        <div class="scan-area">
+                            <div class="camera-container" id="camera-container">
+                                <video id="video" class="video-preview hidden" autoplay></video>
+                                <canvas id="canvas" class="hidden"></canvas>
+                                                            </div>
+                            <div class="scan-controls">
+                                <button class="scan-btn" id="start-camera-btn">Start Camera</button>
+                                <button class="scan-btn hidden" id="capture-btn">Capture Image</button>
+                                <button class="scan-btn hidden" id="analyze-btn">Analyze Soil</button>
+                                <button class="scan-btn secondary hidden" id="upload-btn">Upload Soil Image</button>
+                                <input type="file" id="file-input" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="captured-image-container hidden" id="captured-image-container">
+                            <img id="captured-image" alt="Captured soil image">
+                            <div class="image-info">
+                                <p>Image captured successfully! Click "Analyze Soil" to get plant recommendations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Tab -->
+                <div class="tab-content hidden" id="results-tab">
+                    <div class="results-container">
+                                                
+                        <div class="soil-analysis-results hidden" id="soil-analysis-results">
+                            <!-- Soil Analysis Summary -->
+                            <div class="soil-summary-card">
+                                <h2>Soil Analysis Results</h2>
+                                <div class="soil-info-grid">
+                                    <div class="soil-info-item">
+                                        <i class="fas fa-mountain"></i>
+                                        <span class="label">Soil Type:</span>
+                                        <span class="value" id="soil-type">-</span>
+                                    </div>
+                                    <div class="soil-info-item">
+                                        <i class="fas fa-flask"></i>
+                                        <span class="label">pH Level:</span>
+                                        <span class="value" id="ph-level">-</span>
+                                    </div>
+                                    <div class="soil-info-item">
+                                        <i class="fas fa-hand-paper"></i>
+                                        <span class="label">Texture:</span>
+                                        <span class="value" id="soil-texture">-</span>
+                                    </div>
+                                    <div class="soil-info-item">
+                                        <i class="fas fa-palette"></i>
+                                        <span class="label">Color:</span>
+                                        <span class="value" id="soil-color">-</span>
+                                    </div>
+                                    <div class="soil-info-item">
+                                        <i class="fas fa-tint"></i>
+                                        <span class="label">Moisture:</span>
+                                        <span class="value" id="moisture-content">-</span>
+                                    </div>
+                                    <div class="soil-info-item">
+                                        <i class="fas fa-leaf"></i>
+                                        <span class="label">Nutrients:</span>
+                                        <span class="value" id="nutrient-content">-</span>
+                                    </div>
+                                </div>
+                                <div class="confidence-score">
+                                    <span class="label">Analysis Confidence:</span>
+                                    <span class="score" id="confidence-score">-</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Plant Recommendations -->
+                            <div class="plant-recommendations">
+                                <h3>Recommended Plants</h3>
+                                <div class="plants-grid" id="plants-grid">
+                                    <!-- Plant cards will be dynamically added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment Tab -->
+                <div class="tab-content hidden" id="treatment-tab">
+                    <div class="scan-area">
+                        <div class="scan-placeholder">
+                            <i class="fas fa-camera"></i>
+                            <p>First scan the plant leaf</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Tab -->
+                <div class="tab-content" id="history-tab">
+                    <div class="history-header">
+                        <h2>Scan History</h2>
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    
+                    <div class="stats-cards">
+                        <div class="stat-card blue">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Total Scans</span>
+                            </div>
+                        </div>
+                        <div class="stat-card green">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Complete Treatments</span>
+                            </div>
+                        </div>
+                        <div class="stat-card orange">
+                            <i class="fas fa-ellipsis-h"></i>
+                            <div class="stat-info">
+                                <span class="stat-number">1</span>
+                                <span class="stat-label">Ongoing Treatment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="disease-entries">
+                        <div class="disease-card">
+                            <div class="disease-header">
+                                <h3>Patti ka Jang (Leaf Rust)</h3>
+                                <span class="status complete">Complete</span>
+                            </div>
+                            <div class="disease-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Wheat</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Field A1</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>15 January 2025</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>Accuracy: 87%</span>
+                                </div>
+                            </div>
+                            <div class="disease-actions">
+                                <button class="action-btn">View Details</button>
+                                <button class="action-btn secondary">Scan Again</button>
+                            </div>
+                        </div>
+
+                        <div class="disease-card">
+                            <div class="disease-header">
+                                <h3>Powdery Mildew</h3>
+                                <span class="status ongoing">Ongoing</span>
+                            </div>
+                            <div class="disease-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Pea</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Field B2</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>12 January 2025</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>Accuracy: 92%</span>
+                                </div>
+                            </div>
+                            <div class="disease-actions">
+                                <button class="action-btn">View Details</button>
+                                <button class="action-btn secondary">Scan Again</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Crop Screen -->
+        <div class="screen hidden" id="crop-screen">
+            <header class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
+                    <h1>Crop Management</h1>
+                </div>
+            </header>
+            <main class="main-content">
+                <div class="placeholder-content">
+                    <i class="fas fa-tractor"></i>
+                    <p>Crop Management Features</p>
+                </div>
+            </main>
+        </div>
+
+        <!-- Health Screen - Pesticide Guide -->
+        <div class="screen hidden" id="health-screen">
+            <header class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
+                    <h1>Pesticide Guide</h1>
+                </div>
+            </header>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="plant-search" placeholder="Search plants, pesticides, or problems...">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Plants</button>
+                    <button class="filter-tab" data-filter="vegetables">Vegetables</button>
+                    <button class="filter-tab" data-filter="fruits">Fruits</button>
+                    <button class="filter-tab" data-filter="grains">Grains</button>
+                </div>
+            </div>
+
+            <main class="main-content">
+                
+                <!-- Plant Guide Cards -->
+                <section class="plant-guide-section">
+                    <h2>Complete Plant Care Guide</h2>
+                    <div class="plant-cards-grid" id="plant-cards">
+                        <!-- Plant cards will be dynamically added here -->
+                    </div>
+                </section>
+
+                <!-- Pesticide Recommendations -->
+                <section class="pesticide-section">
+                    <h2>Common Pesticides & Solutions</h2>
+                    <div class="pesticide-grid" id="pesticide-cards">
+                        <!-- Pesticide cards will be dynamically added here -->
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="screen hidden" id="profile-screen">
+            <header class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
+                    <h1>Profile</h1>
+                </div>
+            </header>
+            <main class="main-content">
+                <div class="placeholder-content">
+                    <i class="fas fa-user"></i>
+                    <p>User Profile</p>
+                </div>
+            </main>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-screen="dashboard-screen">
+                <i class="fas fa-leaf"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" data-screen="scanner-screen">
+                <i class="fas fa-camera"></i>
+                <span>Scanner</span>
+            </button>
+            <button class="nav-item" data-screen="crop-screen">
+                <i class="fas fa-tractor"></i>
+                <span>Crop</span>
+            </button>
+            <button class="nav-item" data-screen="health-screen">
+                <i class="fas fa-shield-alt"></i>
+                <span>Health</span>
+            </button>
+            <button class="nav-item" data-screen="profile-screen">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
