@@ -242,26 +242,114 @@ async function analyzeSoil() {
         analyzeBtn.innerHTML = '<span class="loading"></span> Analyzing...';
         analyzeBtn.disabled = true;
         
-        // Convert base64 to blob
-        const response = await fetch(capturedImageData);
-        const blob = await response.blob();
-        const file = new File([blob], 'soil-image.jpg', { type: 'image/jpeg' });
+        // Simulate API call with mock data for demo
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate processing time
         
-        // Create form data
-        const formData = new FormData();
-        formData.append('image', file);
+        // Mock analysis result based on random selection
+        const mockResults = [
+            {
+                soilType: "Clay Loam",
+                phLevel: "6.8",
+                texture: "Fine-textured",
+                color: "Dark Brown",
+                moistureContent: "25%",
+                nutrientContent: "High - Rich in organic matter",
+                confidenceScore: 0.92,
+                recommendedPlants: [
+                    {
+                        plantName: "Tomato",
+                        scientificName: "Solanum lycopersicum",
+                        description: "High-yield vegetable perfect for this soil type",
+                        soilRequirements: "Well-drained, pH 6.0-7.0",
+                        growingSteps: ["Prepare soil with compost", "Plant seedlings 24 inches apart", "Water regularly", "Add support stakes"],
+                        careInstructions: ["Daily watering", "Weekly fertilizing", "Prune lower leaves", "Monitor for pests"],
+                        growingPeriodDays: "60-80",
+                        difficulty: "Medium",
+                        successRate: "85"
+                    },
+                    {
+                        plantName: "Lettuce",
+                        scientificName: "Lactuca sativa",
+                        description: "Fast-growing leafy green ideal for clay loam",
+                        soilRequirements: "Moist, well-drained soil",
+                        growingSteps: ["Till soil lightly", "Sow seeds shallow", "Thin seedlings", "Harvest outer leaves"],
+                        careInstructions: ["Keep soil moist", "Partial shade in hot weather", "Regular harvesting"],
+                        growingPeriodDays: "45-60",
+                        difficulty: "Easy",
+                        successRate: "90"
+                    }
+                ]
+            },
+            {
+                soilType: "Sandy Loam",
+                phLevel: "6.2",
+                texture: "Medium-textured",
+                color: "Light Brown",
+                moistureContent: "15%",
+                nutrientContent: "Medium - Good drainage",
+                confidenceScore: 0.88,
+                recommendedPlants: [
+                    {
+                        plantName: "Carrot",
+                        scientificName: "Daucus carota",
+                        description: "Root vegetable that thrives in sandy loam",
+                        soilRequirements: "Loose, well-drained soil",
+                        growingSteps: ["Remove rocks from soil", "Plant seeds 1/4 inch deep", "Thin to 2 inches apart", "Mulch to retain moisture"],
+                        careInstructions: ["Even watering", "Weed regularly", "Harvest when mature"],
+                        growingPeriodDays: "70-80",
+                        difficulty: "Easy",
+                        successRate: "82"
+                    },
+                    {
+                        plantName: "Potato",
+                        scientificName: "Solanum tuberosum",
+                        description: "Staple crop suitable for sandy loam soils",
+                        soilRequirements: "Well-drained, loose soil",
+                        growingSteps: ["Plant seed potatoes", "Hill soil around stems", "Water consistently", "Harvest when tops die"],
+                        careInstructions: ["Regular hilling", "Pest monitoring", "Proper drainage"],
+                        growingPeriodDays: "90-120",
+                        difficulty: "Medium",
+                        successRate: "78"
+                    }
+                ]
+            },
+            {
+                soilType: "Silt Loam",
+                phLevel: "7.1",
+                texture: "Fine-textured",
+                color: "Medium Brown",
+                moistureContent: "30%",
+                nutrientContent: "Very High - Fertile soil",
+                confidenceScore: 0.95,
+                recommendedPlants: [
+                    {
+                        plantName: "Wheat",
+                        scientificName: "Triticum aestivum",
+                        description: "Cereal crop that excels in fertile silt loam",
+                        soilRequirements: "Fertile, well-drained soil",
+                        growingSteps: ["Prepare seedbed", "Sow seeds evenly", "Apply fertilizer", "Monitor growth stages"],
+                        careInstructions: ["Irrigation during dry periods", "Disease monitoring", "Timely harvesting"],
+                        growingPeriodDays: "120-150",
+                        difficulty: "Medium",
+                        successRate: "88"
+                    },
+                    {
+                        plantName: "Soybean",
+                        scientificName: "Glycine max",
+                        description: "Legume crop perfect for nitrogen-rich silt loam",
+                        soilRequirements: "Well-drained, fertile soil",
+                        growingSteps: ["Inoculate seeds", "Plant in rows", "Control weeds", "Monitor pod development"],
+                        careInstructions: ["Regular monitoring", "Proper irrigation", "Pest control"],
+                        growingPeriodDays: "90-110",
+                        difficulty: "Easy",
+                        successRate: "92"
+                    }
+                ]
+            }
+        ];
         
-        // Send to backend
-        const apiResponse = await fetch('http://localhost:8082/api/soil-analysis/analyze', {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (!apiResponse.ok) {
-            throw new Error(`HTTP error! status: ${apiResponse.status}`);
-        }
-        
-        const analysisResult = await apiResponse.json();
+        // Select random result for variety
+        const analysisResult = mockResults[Math.floor(Math.random() * mockResults.length)];
         
         // Display results
         displaySoilAnalysisResults(analysisResult);
