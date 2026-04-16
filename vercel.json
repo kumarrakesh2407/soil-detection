@@ -1,21 +1,23 @@
 {
   "version": 2,
   "name": "soil-detection",
-  "builds": [
-    {
-      "src": "frontend/index.html",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/frontend/index.html"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/frontend/index.html",
-      "status": 200
+      "dest": "/frontend/index.html"
     }
   ],
   "outputDirectory": "frontend",
-  "installCommand": "echo 'No build steps needed for static site'",
+  "publicDirectory": "frontend",
+  "framework": null,
+  "functionsDirectory": null,
+  "installCommand": "echo 'No dependencies to install'",
   "buildCommand": "echo 'Static site - no build required'",
-  "framework": null
+  "devCommand": "echo 'Static site - no dev server needed'",
+  "cleanUrls": true,
+  "trailingSlash": false
 }
