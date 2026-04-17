@@ -13,8 +13,8 @@ This guide will help you deploy the Soil Detection System to GitHub Pages for fr
 1. Go to [GitHub](https://github.com) and sign in
 2. Click the "+" icon in the top right corner
 3. Select "New repository"
-4. Enter repository name: `soil-detection`
-5. Add description: "AI-powered soil analysis and agricultural management system"
+4. Enter repository name: `XXXXXX XXXX`
+5. Add description: "- - - -- - - - - -"
 6. Choose "Public" (required for GitHub Pages)
 7. Click "Create repository"
 
