@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "soil-detection",
   "routes": [
     {
       "src": "/",
@@ -12,9 +11,7 @@
     }
   ],
   "outputDirectory": "frontend",
-  "publicDirectory": "frontend",
   "framework": null,
-  "functionsDirectory": null,
   "installCommand": "echo 'No dependencies to install'",
   "buildCommand": "echo 'Static site - no build required'",
   "devCommand": "echo 'Static site - no dev server needed'",

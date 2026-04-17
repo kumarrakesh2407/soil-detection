@@ -1,2 +1,127 @@
 # Project exclude paths
 /backend/target/
+.vercel
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build and dependency files
+/target/
+/build/
+/dist/
+/node_modules/
+*.jar
+*.war
+*.ear
+*.class
+
+# Logs and runtime files
+*.log
+*.tmp
+*.temp
+logs/
+
+# Environment and configuration files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+application-dev.properties
+application-prod.properties
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache and temporary files
+.cache/
+*.cache
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Frontend build files
+/frontend/dist/
+/frontend/build/
+/frontend/node_modules/
+/frontend/.cache/
+
+# Backend specific
+/backend/target/
+/backend/.mvn/wrapper/maven-wrapper.jar
+/backend/mvnw
+backend/mvnw.cmd
+backend/.mvn/
+
+# Deployment files
+.vercel/
+.netlify/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test

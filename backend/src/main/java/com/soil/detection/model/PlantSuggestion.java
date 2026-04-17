@@ -13,6 +13,7 @@ public class PlantSuggestion {
     private int growingPeriodDays;
     private String difficulty;
     private double successRate;
+    private String plantType; // "Field Crop", "Vegetable", "Plant/Tree"
 
     // Constructors
     public PlantSuggestion() {}
@@ -20,7 +21,7 @@ public class PlantSuggestion {
     public PlantSuggestion(String plantName, String scientificName, String description, 
                           String soilRequirements, List<String> growingSteps, 
                           List<String> careInstructions, int growingPeriodDays, 
-                          String difficulty, double successRate) {
+                          String difficulty, double successRate, String plantType) {
         this.plantName = plantName;
         this.scientificName = scientificName;
         this.description = description;
@@ -30,6 +31,7 @@ public class PlantSuggestion {
         this.growingPeriodDays = growingPeriodDays;
         this.difficulty = difficulty;
         this.successRate = successRate;
+        this.plantType = plantType;
     }
 
     // Getters and Setters
@@ -103,5 +105,13 @@ public class PlantSuggestion {
 
     public void setSuccessRate(double successRate) {
         this.successRate = successRate;
+    }
+
+    public String getPlantType() {
+        return plantType;
+    }
+
+    public void setPlantType(String plantType) {
+        this.plantType = plantType;
     }
 }

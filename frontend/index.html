@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soil Detection - Farm Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🌱</text></svg>">
 </head>
 <body>
     <!-- Main Container -->
@@ -18,13 +19,42 @@
                 <div class="header-content">
                     <h1>Farm Dashboard</h1>
                     <div class="header-icons">
-                        <i class="fas fa-bell"></i>
+                        <div class="notification-wrapper">
+                            <i class="fas fa-bell" onclick="toggleNotifications()"></i>
+                            <span class="notification-count" id="notification-count">0</span>
+                            <div class="notification-dropdown" id="notification-dropdown">
+                                <div class="notification-header">
+                                    <h3>Notifications</h3>
+                                    <button class="clear-all-btn" onclick="clearAllNotifications()">Clear All</button>
+                                </div>
+                                <div class="notification-list" id="notification-list">
+                                    <!-- Notifications will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-user-circle" onclick="showScreen('profile-screen')"></i>
                     </div>
                 </div>
             </header>
 
             <!-- Main Content -->
             <main class="main-content">
+                <!-- TV-Style Ticker -->
+                <div class="tv-ticker">
+                    <div class="ticker-content">
+                        <div class="ticker-scroll">
+                            <span class="ticker-item">📈 Soybean <strong class="positive">+2.1%</strong> to Rs 3,900 per quintal</span>
+                            <span class="ticker-item">🌾 Wheat <strong class="neutral">0.0%</strong> stable at Rs 2,150 per quintal</span>
+                            <span class="ticker-item">🌽 Rice <strong class="positive">+1.8%</strong> expected increase in coming weeks</span>
+                            <span class="ticker-item">🌱 Cotton <strong class="positive">+3.2%</strong> markets show positive trend</span>
+                            <span class="ticker-item">🌾 Corn <strong class="positive">+2.5%</strong> demand rises due to increased feed requirements</span>
+                            <span class="ticker-item">📈 Tomato <strong class="positive">+5.2%</strong> prices surge in local markets</span>
+                            <span class="ticker-item">🌾 Potato <strong class="negative">-0.5%</strong> prices remain stable at Rs 1,200 per quintal</span>
+                            <span class="ticker-item">🌾 Government <strong class="positive">+4.0%</strong> announces new MSP for Rabi crops</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Weather Card -->
                 <div class="weather-card">
                     <div class="weather-header">
@@ -65,14 +95,11 @@
 
                 <!-- Crop Prices -->
                 <div class="crop-prices">
-                    <div class="price-item">
-                        <span>Soybean</span>
-                        <span class="price">Rs 3,900</span>
-                        <span class="change positive">+2.1%</span>
-                    </div>
-                    <div class="price-item">
-                        <span>Wheat</span>
-                        <span class="price">Rs 2,150</span>
+                    <h2>Market Prices</h2>
+                    <div class="crop-prices-container">
+                        <div class="crop-prices-scroll">
+                            <!-- Prices will be dynamically populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
 
@@ -94,6 +121,9 @@
                         </button>
                                             </div>
                 </div>
+
+                <!-- Crop Prices -->
+
             </main>
         </div>
 
@@ -103,7 +133,7 @@
             <header class="header">
                 <div class="header-content">
                     <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
-                    <h1>Disease Detection Scanner</h1>
+                    <h1>AI Soil Analysis Scanner</h1>
                 </div>
             </header>
 
@@ -127,7 +157,7 @@
                             <div class="scan-controls">
                                 <button class="scan-btn" id="start-camera-btn">Start Camera</button>
                                 <button class="scan-btn hidden" id="capture-btn">Capture Image</button>
-                                <button class="scan-btn hidden" id="analyze-btn">Analyze Soil</button>
+                                <button class="scan-btn hidden" id="analyze-btn">AI Analyze Soil</button>
                                 <button class="scan-btn secondary hidden" id="upload-btn">Upload Soil Image</button>
                                 <input type="file" id="file-input" accept="image/*" style="display: none;">
                             </div>
@@ -135,7 +165,7 @@
                         <div class="captured-image-container hidden" id="captured-image-container">
                             <img id="captured-image" alt="Captured soil image">
                             <div class="image-info">
-                                <p>Image captured successfully! Click "Analyze Soil" to get plant recommendations.</p>
+                                <p>Image captured successfully! Click "AI Analyze Soil" for plant recommendations.</p>
                             </div>
                         </div>
                     </div>
@@ -148,7 +178,7 @@
                         <div class="soil-analysis-results hidden" id="soil-analysis-results">
                             <!-- Soil Analysis Summary -->
                             <div class="soil-summary-card">
-                                <h2>Soil Analysis Results</h2>
+                                <h2>AI Soil Analysis Results</h2>
                                 <div class="soil-info-grid">
                                     <div class="soil-info-item">
                                         <i class="fas fa-mountain"></i>
@@ -212,7 +242,12 @@
                 <div class="tab-content" id="history-tab">
                     <div class="history-header">
                         <h2>Scan History</h2>
-                        <i class="fas fa-filter"></i>
+                        <div class="header-actions">
+                            <i class="fas fa-filter" onclick="showFilterOptions()"></i>
+                            <button class="clear-history-btn" onclick="clearAllHistory()">
+                                <i class="fas fa-trash"></i> Clear All
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="stats-cards">
@@ -308,13 +343,251 @@
                 <div class="header-content">
                     <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
                     <h1>Crop Management</h1>
+                    <div class="header-icons">
+                        <i class="fas fa-bell" onclick="showNotifications()"></i>
+                        <i class="fas fa-user-circle" onclick="showScreen('profile-screen')"></i>
+                    </div>
                 </div>
             </header>
             <main class="main-content">
-                <div class="placeholder-content">
-                    <i class="fas fa-tractor"></i>
-                    <p>Crop Management Features</p>
-                </div>
+                <!-- Crop Categories -->
+                <section class="crop-categories">
+                    <h2>Crop Categories</h2>
+                    <div class="category-grid">
+                        <div class="category-card vegetables">
+                            <div class="category-icon">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                            <h3>Vegetables</h3>
+                            <p>Fresh produce for daily nutrition and market sales</p>
+                            <div class="crop-examples">
+                                <span>Tomato</span>
+                                <span>Lettuce</span>
+                                <span>Carrot</span>
+                                <span>Spinach</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card fruits">
+                            <div class="category-icon">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                            <h3>Fruit Trees</h3>
+                            <p>Long-term investment with high returns</p>
+                            <div class="crop-examples">
+                                <span>Mango</span>
+                                <span>Apple</span>
+                                <span>Guava</span>
+                                <span>Citrus</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card grains">
+                            <div class="category-icon">
+                                <i class="fas fa-wheat-awn"></i>
+                            </div>
+                            <h3>Field Crops</h3>
+                            <p>Staple grains for food security</p>
+                            <div class="crop-examples">
+                                <span>Rice</span>
+                                <span>Wheat</span>
+                                <span>Corn</span>
+                                <span>Soybean</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card legumes">
+                            <div class="category-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>Legumes</h3>
+                            <p>Protein-rich crops for soil health</p>
+                            <div class="crop-examples">
+                                <span>Lentils</span>
+                                <span>Chickpeas</span>
+                                <span>Beans</span>
+                                <span>Peas</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seasonal Planting Guide -->
+                <section class="seasonal-guide">
+                    <h2>Seasonal Planting Guide</h2>
+                    <div class="season-grid">
+                        <div class="season-card kharif">
+                            <div class="season-header">
+                                <i class="fas fa-sun"></i>
+                                <h3>Kharif Season</h3>
+                                <span class="season-time">June - October</span>
+                            </div>
+                            <div class="season-crops">
+                                <h4>Recommended Crops:</h4>
+                                <ul>
+                                    <li>Rice (Paddy)</li>
+                                    <li>Cotton</li>
+                                    <li>Soybean</li>
+                                    <li>Maize (Corn)</li>
+                                    <li>Sugarcane</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="season-card rabi">
+                            <div class="season-header">
+                                <i class="fas fa-cloud-sun"></i>
+                                <h3>Rabi Season</h3>
+                                <span class="season-time">October - March</span>
+                            </div>
+                            <div class="season-crops">
+                                <h4>Recommended Crops:</h4>
+                                <ul>
+                                    <li>Wheat</li>
+                                    <li>Barley</li>
+                                    <li>Mustard</li>
+                                    <li>Gram (Chickpea)</li>
+                                    <li>Peas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="season-card zaid">
+                            <div class="season-header">
+                                <i class="fas fa-snowflake"></i>
+                                <h3>Zaid Season</h3>
+                                <span class="season-time">March - June</span>
+                            </div>
+                            <div class="season-crops">
+                                <h4>Recommended Crops:</h4>
+                                <ul>
+                                    <li>Watermelon</li>
+                                    <li>Cucumber</li>
+                                    <li>Muskmelon</li>
+                                    <li>Vegetables</li>
+                                    <li>Fodder crops</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Crop Planning Tools -->
+                <section class="crop-tools">
+                    <h2>Crop Planning Tools</h2>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3>Yield Calculator</h3>
+                            <p>Estimate potential crop yield based on field size and crop type</p>
+                            <button class="tool-btn" onclick="openYieldCalculator()">Calculate</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>Crop Calendar</h3>
+                            <p>Plan your planting and harvesting schedule</p>
+                            <button class="tool-btn" onclick="openCropCalendar()">View Calendar</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <h3>Advanced Machines</h3>
+                            <p>Modern farming equipment and technology</p>
+                            <button class="tool-btn" onclick="showAdvancedMachines()">View Machines</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <h3>Old Machines</h3>
+                            <p>Traditional farming equipment</p>
+                            <button class="tool-btn" onclick="showOldMachines()">View Machines</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Water Supply</h3>
+                            <p>Irrigation and water management systems</p>
+                            <button class="tool-btn" onclick="showWaterSupply()">View Systems</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Water Requirements</h3>
+                            <p>Irrigation needs for different crops</p>
+                            <button class="tool-btn" onclick="openWaterGuide()">View Guide</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Best Practices -->
+                <section class="best-practices">
+                    <h2>Sustainable Farming Practices</h2>
+                    <div class="practices-grid">
+                        <div class="practice-card">
+                            <div class="practice-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <h3>Crop Rotation</h3>
+                            <p>Rotate crops annually to maintain soil fertility and reduce pest buildup</p>
+                            <div class="practice-examples">
+                                <span>Rice → Wheat → Legumes</span>
+                                <span>Corn → Soybean → Wheat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <div class="practice-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>Organic Farming</h3>
+                            <p>Use natural fertilizers and pest control methods</p>
+                            <div class="practice-examples">
+                                <span>Compost</span>
+                                <span>Green Manure</span>
+                                <span>Biopesticides</span>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <div class="practice-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Water Conservation</h3>
+                            <p>Efficient irrigation techniques to save water</p>
+                            <div class="practice-examples">
+                                <span>Drip Irrigation</span>
+                                <span>Sprinkler Systems</span>
+                                <span>Rainwater Harvesting</span>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <div class="practice-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h3>Mixed Cropping</h3>
+                            <p>Grow multiple crops together for better yields</p>
+                            <div class="practice-examples">
+                                <span>Row Intercropping</span>
+                                <span>Border Cropping</span>
+                                <span>Alley Cropping</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
 
@@ -324,6 +597,10 @@
                 <div class="header-content">
                     <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
                     <h1>Pesticide Guide</h1>
+                    <div class="header-icons">
+                        <i class="fas fa-bell" onclick="showNotifications()"></i>
+                        <i class="fas fa-user-circle" onclick="showScreen('profile-screen')"></i>
+                    </div>
                 </div>
             </header>
             
@@ -361,6 +638,174 @@
             </main>
         </div>
 
+        <!-- Market Prices Screen -->
+        <div class="screen hidden" id="market-screen">
+            <header class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-btn" onclick="showScreen('dashboard-screen')"></i>
+                    <h1>Live Market Prices</h1>
+                    <div class="header-icons">
+                        <div class="notification-wrapper">
+                            <i class="fas fa-bell" onclick="toggleNotifications()"></i>
+                            <span class="notification-count" id="notification-count">0</span>
+                            <div class="notification-dropdown" id="notification-dropdown">
+                                <div class="notification-header">
+                                    <h3>Notifications</h3>
+                                    <button class="clear-all-btn" onclick="clearAllNotifications()">Clear All</button>
+                                </div>
+                                <div class="notification-list" id="notification-list">
+                                    <!-- Notifications will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-sync-alt" onclick="refreshMarketPrices()" id="market-refresh-btn"></i>
+                        <i class="fas fa-user-circle" onclick="showScreen('profile-screen')"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="main-content">
+                <!-- Market Overview -->
+                <section class="market-overview">
+                    <div class="overview-cards">
+                        <div class="market-card gainers">
+                            <div class="card-header">
+                                <i class="fas fa-arrow-trend-up"></i>
+                                <h3>Top Gainers</h3>
+                            </div>
+                            <div class="gainers-list" id="top-gainers">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="market-card losers">
+                            <div class="card-header">
+                                <i class="fas fa-arrow-trend-down"></i>
+                                <h3>Top Losers</h3>
+                            </div>
+                            <div class="losers-list" id="top-losers">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="market-card active">
+                            <div class="card-header">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>Market Status</h3>
+                            </div>
+                            <div class="market-status">
+                                <div class="status-item">
+                                    <span class="label">Total Crops</span>
+                                    <span class="value" id="total-crops">20</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="label">Active Markets</span>
+                                    <span class="value" id="active-markets">15</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="label">Last Update</span>
+                                    <span class="value" id="last-update">--:--:--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Price Categories -->
+                <section class="price-categories">
+                    <h2>Price Categories</h2>
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="all">All Crops</button>
+                        <button class="category-tab" data-category="grains">Grains</button>
+                        <button class="category-tab" data-category="vegetables">Vegetables</button>
+                        <button class="category-tab" data-category="pulses">Pulses</button>
+                        <button class="category-tab" data-category="commercial">Commercial</button>
+                    </div>
+                </section>
+
+                <!-- Live Price Table -->
+                <section class="live-prices-section">
+                    <div class="section-header">
+                        <h2>Live Prices</h2>
+                        <div class="price-controls">
+                            <button class="control-btn" onclick="toggleAutoUpdate()">
+                                <i class="fas fa-pause" id="auto-update-icon"></i>
+                                <span id="auto-update-text">Pause</span>
+                            </button>
+                            <select class="sort-select" id="sort-select" onchange="sortPrices()">
+                                <option value="name">Sort by Name</option>
+                                <option value="price">Sort by Price</option>
+                                <option value="change">Sort by Change</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="prices-table-container">
+                        <table class="prices-table">
+                            <thead>
+                                <tr>
+                                    <th>Crop</th>
+                                    <th>Current Price</th>
+                                    <th>Change</th>
+                                    <th>% Change</th>
+                                    <th>Trend</th>
+                                    <th>Market</th>
+                                </tr>
+                            </thead>
+                            <tbody id="prices-tbody">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Price Charts -->
+                <section class="price-charts">
+                    <h2>Price Trends</h2>
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Top 5 Crops Performance</h3>
+                            <div class="chart-container">
+                                <canvas id="top-crops-chart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-card">
+                            <h3>Market Overview</h3>
+                            <div class="market-summary">
+                                <div class="summary-item positive">
+                                    <span class="label">Gainers</span>
+                                    <span class="count" id="gainers-count">0</span>
+                                </div>
+                                <div class="summary-item negative">
+                                    <span class="label">Losers</span>
+                                    <span class="count" id="losers-count">0</span>
+                                </div>
+                                <div class="summary-item neutral">
+                                    <span class="label">Unchanged</span>
+                                    <span class="count" id="unchanged-count">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Market News -->
+                <section class="market-news">
+                    <h2>Market Updates</h2>
+                    <div class="news-ticker">
+                        <div class="news-scroll" id="news-scroll">
+                            <div class="news-item"> Soybean prices surge due to increased export demand</div>
+                            <div class="news-item"> Wheat market remains stable with good supply</div>
+                            <div class="news-item"> Tomato prices expected to rise in coming weeks</div>
+                            <div class="news-item"> Government announces new MSP for Kharif crops</div>
+                            <div class="news-item"> Cotton market shows positive trend</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
         <!-- Profile Screen -->
         <div class="screen hidden" id="profile-screen">
             <header class="header">
@@ -387,19 +832,19 @@
                 <i class="fas fa-camera"></i>
                 <span>Scanner</span>
             </button>
-            <button class="nav-item" data-screen="crop-screen">
-                <i class="fas fa-tractor"></i>
-                <span>Crop</span>
+            <button class="nav-item" data-screen="market-screen">
+                <i class="fas fa-chart-line"></i>
+                <span>Market</span>
             </button>
             <button class="nav-item" data-screen="health-screen">
                 <i class="fas fa-shield-alt"></i>
                 <span>Health</span>
             </button>
-            <button class="nav-item" data-screen="profile-screen">
-                <i class="fas fa-user"></i>
-                <span>Profile</span>
+            <button class="nav-item" data-screen="crop-screen">
+                <i class="fas fa-tractor"></i>
+                <span>Crop</span>
             </button>
-        </nav>
+                    </nav>
     </div>
 
     <script src="script.js"></script>
