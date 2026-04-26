@@ -157,8 +157,6 @@ const translations = {
         rowIntercropping: 'Row Intercropping',
         borderCropping: 'Border Cropping',
         alleyCropping: 'Alley Cropping',
-        // Tutorial Button
-        watchTutorial: 'Watch Tutorial',
         // Plant Card Labels
         unknownPlant: 'Unknown Plant',
         noDescription: 'No description available',
@@ -328,8 +326,6 @@ const translations = {
         rowIntercropping: 'पंक्ति अंतर-फसल',
         borderCropping: 'सीमा फसल',
         alleyCropping: 'गली फसल',
-        // Tutorial Button
-        watchTutorial: 'ट्यूटोरियल देखें',
         // Plant Card Labels
         unknownPlant: 'अज्ञात पौधा',
         noDescription: 'कोई विवरण उपलब्ध नहीं',
@@ -591,10 +587,6 @@ function applyTranslations() {
     const searchPlaceholder = document.getElementById('plant-search');
     if (searchPlaceholder) searchPlaceholder.placeholder = t.searchPlaceholder;
 
-    // Tutorial Button
-    const tutorialBtnText = document.getElementById('tutorial-btn-text');
-    if (tutorialBtnText) tutorialBtnText.textContent = t.watchTutorial;
-    
     const filterTabs = document.querySelectorAll('.filter-tab');
     filterTabs.forEach(tab => {
         const tabText = tab.textContent;
@@ -3511,13 +3503,6 @@ const plantGuideData = {
         }
     ]
 };
-
-// Open Crop Tutorial YouTube Video
-function openCropTutorial() {
-    // Indian Farmer YouTube channel - crop related videos
-    const youtubeUrl = 'https://www.youtube.com/results?search_query=indian+farmer+crops+tutorial';
-    window.open(youtubeUrl, '_blank');
-}
 
 // Initialize Pesticide Guide
 function initPesticideGuide() {
