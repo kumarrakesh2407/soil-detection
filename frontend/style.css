@@ -1959,7 +1959,46 @@ body {
 .filter-tab.active {
     background: #4CAF50;
     color: white;
-    border-color: #4CAF50;
+}
+
+/* Tutorial Button Container */
+.tutorial-container {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.tutorial-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+.tutorial-btn:active {
+    transform: translateY(0);
+}
+
+.tutorial-btn i {
+    font-size: 1.4rem;
 }
 
 .filter-tab:hover:not(.active) {
