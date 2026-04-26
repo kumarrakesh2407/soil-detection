@@ -4314,43 +4314,7 @@ const cropPriceService = new CropPriceService();
 document.addEventListener('DOMContentLoaded', () => {
     // Start real-time updates
     cropPriceService.startRealTimeUpdates();
-    
-    // Add refresh button functionality
-    addPriceRefreshButton();
 });
-
-// Add refresh button to crop prices section
-function addPriceRefreshButton() {
-    const priceSection = document.querySelector('.crop-prices h2');
-    if (priceSection && !document.querySelector('.refresh-prices-btn')) {
-        const refreshBtn = document.createElement('button');
-        refreshBtn.className = 'refresh-prices-btn';
-        refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
-        refreshBtn.style.cssText = `
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-left: 15px;
-            transition: all 0.3s ease;
-        `;
-        
-        refreshBtn.addEventListener('click', () => {
-            refreshBtn.style.transform = 'rotate(360deg)';
-            cropPriceService.updateCropPricesDisplay();
-            showNotification('Market prices refreshed!', 'success'); // Keep this notification
-            
-            setTimeout(() => {
-                refreshBtn.style.transform = 'rotate(0deg)';
-            }, 500);
-        });
-        
-        priceSection.appendChild(refreshBtn);
-    }
-}
 
 // Clean up on page unload
 window.addEventListener('beforeunload', () => {
