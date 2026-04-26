@@ -40,7 +40,7 @@ public class EnhancedSoilAnalysisService {
         }
         
         // Try real AI analysis first, fallback to enhanced mock if AI not available
-        if (imageModel != null && openaiApiKey != null && !openaiApiKey.contains("your-openai-api-key-here")) {
+        if (imageModel != null && openaiApiKey != null && !openaiApiKey.contains("${spring.ai.openai.api-key:}")) {
             try {
                 return performRealAIAnalysis(imageFile);
             } catch (Exception e) {

@@ -1,3 +1,247 @@
+// Language Toggle System
+let currentLanguage = 'en'; // 'en' for English, 'hi' for Hindi
+
+const translations = {
+    en: {
+        dashboardTitle: 'Farm Dashboard',
+        todaysWeather: "Today's Weather",
+        marketPrices: 'Market Prices',
+        quickAccess: 'Quick Access',
+        soilScan: 'Soil Scan',
+        cropSuggestion: 'Crop Suggestion',
+        pesticideGuide: 'Pesticide Guide',
+        notifications: 'Notifications',
+        clearAll: 'Clear All',
+        aiSoilAnalysisScanner: 'AI Soil Analysis Scanner',
+        scan: 'Scan',
+        results: 'Results',
+        history: 'History',
+        startCamera: 'Start Camera',
+        captureImage: 'Capture Image',
+        aiAnalyzeSoil: 'AI Analyze Soil',
+        uploadSoilImage: 'Upload Soil Image',
+        soilAnalysisResults: 'AI Soil Analysis Results',
+        recommendedPlants: 'Recommended Plants',
+        scanHistory: 'Scan History',
+        totalScans: 'Total Scans',
+        completeTreatments: 'Complete Treatments',
+        ongoingTreatment: 'Ongoing Treatment',
+        cropManagement: 'Crop Management',
+        cropCategories: 'Crop Categories',
+        vegetables: 'Vegetables',
+        fruitTrees: 'Fruit Trees',
+        fieldCrops: 'Field Crops',
+        legumes: 'Legumes',
+        seasonalPlantingGuide: 'Seasonal Planting Guide',
+        kharifSeason: 'Kharif Season',
+        rabiSeason: 'Rabi Season',
+        zaidSeason: 'Zaid Season',
+        cropPlanningTools: 'Crop Planning Tools',
+        sustainableFarming: 'Sustainable Farming Practices',
+        pesticideGuideTitle: 'Pesticide Guide',
+        searchPlaceholder: 'Search plants, pesticides, or problems...',
+        allPlants: 'All Plants',
+        completePlantCareGuide: 'Complete Plant Care Guide',
+        commonPesticides: 'Common Pesticides & Solutions'
+    },
+    hi: {
+        dashboardTitle: 'खेत डैशबोर्ड',
+        todaysWeather: 'आज का मौसम',
+        marketPrices: 'बाजार भाव',
+        quickAccess: 'त्वरित पहुंच',
+        soilScan: 'मिट्टी स्कैन',
+        cropSuggestion: 'फसल सुझाव',
+        pesticideGuide: 'कीटनाशक गाइड',
+        notifications: 'सूचनाएं',
+        clearAll: 'सभी साफ करें',
+        aiSoilAnalysisScanner: 'AI मिट्टी विश्लेषण स्कैनर',
+        scan: 'स्कैन',
+        results: 'परिणाम',
+        history: 'इतिहास',
+        startCamera: 'कैमरा शुरू करें',
+        captureImage: 'फोटो लें',
+        aiAnalyzeSoil: 'AI मिट्टी विश्लेषण',
+        uploadSoilImage: 'मिट्टी की फोटो अपलोड करें',
+        soilAnalysisResults: 'AI मिट्टी विश्लेषण परिणाम',
+        recommendedPlants: 'अनुशंसित पौधे',
+        scanHistory: 'स्कैन इतिहास',
+        totalScans: 'कुल स्कैन',
+        completeTreatments: 'पूर्ण उपचार',
+        ongoingTreatment: 'चल रहा उपचार',
+        cropManagement: 'फसल प्रबंधन',
+        cropCategories: 'फसल श्रेणियां',
+        vegetables: 'सब्जियां',
+        fruitTrees: 'फल वृक्ष',
+        fieldCrops: 'खेती फसलें',
+        legumes: 'दलहन',
+        seasonalPlantingGuide: 'मौसमी रोपण गाइड',
+        kharifSeason: 'खरीफ सीजन',
+        rabiSeason: 'रबी सीजन',
+        zaidSeason: 'जायद सीजन',
+        cropPlanningTools: 'फसल नियोजन उपकरण',
+        sustainableFarming: 'टिकाऊ खेती प्रथाएं',
+        pesticideGuideTitle: 'कीटनाशक गाइड',
+        searchPlaceholder: 'पौधे, कीटनाशक या समस्याएं खोजें...',
+        allPlants: 'सभी पौधे',
+        completePlantCareGuide: 'पूर्ण पौधा देखभाल गाइड',
+        commonPesticides: 'सामान्य कीटनाशक और समाधान'
+    }
+};
+
+function toggleLanguage() {
+    currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+    
+    // Update button text
+    const langText = document.getElementById('lang-text');
+    langText.textContent = currentLanguage === 'en' ? 'EN' : 'हि';
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = currentLanguage === 'en' ? 'en' : 'hi';
+    
+    // Apply translations
+    applyTranslations();
+    
+    // Save preference to localStorage
+    localStorage.setItem('preferredLanguage', currentLanguage);
+    
+    // Show notification
+    showNotification(
+        currentLanguage === 'en' ? 'Language changed to English' : 'भाषा हिंदी में बदली गई',
+        'success'
+    );
+}
+
+function applyTranslations() {
+    const t = translations[currentLanguage];
+    
+    // Dashboard Screen
+    const dashboardTitle = document.querySelector('#dashboard-screen h1');
+    if (dashboardTitle) dashboardTitle.textContent = t.dashboardTitle;
+    
+    const todaysWeather = document.querySelector('.weather-header h2');
+    if (todaysWeather) todaysWeather.textContent = t.todaysWeather;
+    
+    const marketPrices = document.querySelector('.crop-prices h2');
+    if (marketPrices) marketPrices.textContent = t.marketPrices;
+    
+    const quickAccess = document.querySelector('.quick-access h2');
+    if (quickAccess) quickAccess.textContent = t.quickAccess;
+    
+    // Quick Access Buttons
+    const soilScanBtn = document.querySelector('.soil-scan span');
+    if (soilScanBtn) soilScanBtn.textContent = t.soilScan;
+    
+    const cropSuggestionBtn = document.querySelector('.crop-suggestion span');
+    if (cropSuggestionBtn) cropSuggestionBtn.textContent = t.cropSuggestion;
+    
+    const pesticideGuideBtn = document.querySelector('.pesticide-guide span');
+    if (pesticideGuideBtn) pesticideGuideBtn.textContent = t.pesticideGuide;
+    
+    // Notifications
+    const notificationHeader = document.querySelector('.notification-header h3');
+    if (notificationHeader) notificationHeader.textContent = t.notifications;
+    
+    const clearAllBtn = document.querySelector('.clear-all-btn');
+    if (clearAllBtn) clearAllBtn.textContent = t.clearAll;
+    
+    // Scanner Screen
+    const scannerTitle = document.querySelector('#scanner-screen h1');
+    if (scannerTitle) scannerTitle.textContent = t.aiSoilAnalysisScanner;
+    
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach((btn, index) => {
+        const tabs = [t.scan, t.results, t.history];
+        if (tabs[index]) btn.textContent = tabs[index];
+    });
+    
+    const startCameraBtn = document.getElementById('start-camera-btn');
+    if (startCameraBtn) startCameraBtn.textContent = t.startCamera;
+    
+    const captureBtn = document.getElementById('capture-btn');
+    if (captureBtn) captureBtn.textContent = t.captureImage;
+    
+    const analyzeBtn = document.getElementById('analyze-btn');
+    if (analyzeBtn) analyzeBtn.textContent = t.aiAnalyzeSoil;
+    
+    const uploadBtn = document.getElementById('upload-btn');
+    if (uploadBtn) uploadBtn.textContent = t.uploadSoilImage;
+    
+    // Results Tab
+    const soilAnalysisResults = document.querySelector('.soil-summary-card h2');
+    if (soilAnalysisResults) soilAnalysisResults.textContent = t.soilAnalysisResults;
+    
+    const recommendedPlants = document.querySelector('.plant-recommendations h3');
+    if (recommendedPlants) recommendedPlants.textContent = t.recommendedPlants;
+    
+    // History Tab
+    const historyHeader = document.querySelector('.history-header h2');
+    if (historyHeader) historyHeader.textContent = t.scanHistory;
+    
+    const statLabels = document.querySelectorAll('.stat-label');
+    statLabels.forEach((label, index) => {
+        const labels = [t.totalScans, t.completeTreatments, t.ongoingTreatment];
+        if (labels[index]) label.textContent = labels[index];
+    });
+    
+    // Crop Screen
+    const cropTitle = document.querySelector('#crop-screen h1');
+    if (cropTitle) cropTitle.textContent = t.cropManagement;
+    
+    const cropCategories = document.querySelector('.crop-categories h2');
+    if (cropCategories) cropCategories.textContent = t.cropCategories;
+    
+    const categoryCards = document.querySelectorAll('.category-card h3');
+    const categoryNames = [t.vegetables, t.fruitTrees, t.fieldCrops, t.legumes];
+    categoryCards.forEach((card, index) => {
+        if (categoryNames[index]) card.textContent = categoryNames[index];
+    });
+    
+    const seasonalGuide = document.querySelector('.seasonal-guide h2');
+    if (seasonalGuide) seasonalGuide.textContent = t.seasonalPlantingGuide;
+    
+    const seasonHeaders = document.querySelectorAll('.season-header h3');
+    const seasonNames = [t.kharifSeason, t.rabiSeason, t.zaidSeason];
+    seasonHeaders.forEach((header, index) => {
+        if (seasonNames[index]) header.textContent = seasonNames[index];
+    });
+    
+    const cropTools = document.querySelector('.crop-tools h2');
+    if (cropTools) cropTools.textContent = t.cropPlanningTools;
+    
+    const bestPractices = document.querySelector('.best-practices h2');
+    if (bestPractices) bestPractices.textContent = t.sustainableFarming;
+    
+    // Health Screen
+    const healthTitle = document.querySelector('#health-screen h1');
+    if (healthTitle) healthTitle.textContent = t.pesticideGuideTitle;
+    
+    const searchPlaceholder = document.getElementById('plant-search');
+    if (searchPlaceholder) searchPlaceholder.placeholder = t.searchPlaceholder;
+    
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    filterTabs.forEach(tab => {
+        if (tab.textContent === 'All Plants') tab.textContent = t.allPlants;
+    });
+    
+    const plantGuideSection = document.querySelector('.plant-guide-section h2');
+    if (plantGuideSection) plantGuideSection.textContent = t.completePlantCareGuide;
+    
+    const pesticideSection = document.querySelector('.pesticide-section h2');
+    if (pesticideSection) pesticideSection.textContent = t.commonPesticides;
+}
+
+// Initialize language from localStorage
+function initializeLanguage() {
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang) {
+        currentLanguage = savedLang;
+        const langText = document.getElementById('lang-text');
+        langText.textContent = currentLanguage === 'en' ? 'EN' : 'हि';
+        document.documentElement.lang = currentLanguage === 'en' ? 'en' : 'hi';
+        applyTranslations();
+    }
+}
+
 // Screen Navigation
 function showScreen(screenId) {
     // Hide all screens
@@ -2500,6 +2744,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initDiseaseActions();
     initFilter();
     initPesticideGuide();
+    
+    // Initialize language
+    initializeLanguage();
     
     // Load history on page load
     loadScanHistory();

@@ -45,7 +45,7 @@ git add .
 
 2. Commit changes:
 ```bash
-git commit -m "Initial commit: Complete soil detection system"
+git commit -m "----- --- -- - ----- "
 ```
 
 ## Step 4: Push to GitHub
