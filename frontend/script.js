@@ -42,7 +42,134 @@ const translations = {
         searchPlaceholder: 'Search plants, pesticides, or problems...',
         allPlants: 'All Plants',
         completePlantCareGuide: 'Complete Plant Care Guide',
-        commonPesticides: 'Common Pesticides & Solutions'
+        commonPesticides: 'Common Pesticides & Solutions',
+        // Weather
+        sunny: 'Sunny',
+        lightBreeze: 'Light Breeze',
+        humidity: 'Humidity',
+        monsoonAlert: 'Monsoon likely in 3 days',
+        today: 'Today',
+        tomorrow: 'Tomorrow',
+        dayAfter: 'Day After',
+        thursday: 'Thursday',
+        friday: 'Friday',
+        // Soil Analysis Labels
+        soilType: 'Soil Type',
+        phLevel: 'pH Level',
+        texture: 'Texture',
+        color: 'Color',
+        moisture: 'Moisture',
+        nutrients: 'Nutrients',
+        analysisConfidence: 'Analysis Confidence',
+        // History
+        viewDetails: 'View Details',
+        scanAgain: 'Scan Again',
+        complete: 'Complete',
+        ongoing: 'Ongoing',
+        accuracy: 'Accuracy',
+        // Crop Categories descriptions
+        vegetablesDesc: 'Fresh produce for daily nutrition and market sales',
+        fruitTreesDesc: 'Long-term investment with high returns',
+        fieldCropsDesc: 'Staple grains for food security',
+        legumesDesc: 'Protein-rich crops for soil health',
+        // Seasonal crops
+        recommendedCrops: 'Recommended Crops',
+        // Tools
+        yieldCalculator: 'Yield Calculator',
+        yieldCalculatorDesc: 'Estimate potential crop yield based on field size and crop type',
+        calculate: 'Calculate',
+        cropCalendar: 'Crop Calendar',
+        cropCalendarDesc: 'Plan your planting and harvesting schedule',
+        viewCalendar: 'View Calendar',
+        advancedMachines: 'Advanced Machines',
+        advancedMachinesDesc: 'Modern farming equipment and technology',
+        viewMachines: 'View Machines',
+        oldMachines: 'Old Machines',
+        oldMachinesDesc: 'Traditional farming equipment',
+        waterSupply: 'Water Supply',
+        waterSupplyDesc: 'Irrigation and water management systems',
+        viewSystems: 'View Systems',
+        waterRequirements: 'Water Requirements',
+        waterRequirementsDesc: 'Irrigation needs for different crops',
+        viewGuide: 'View Guide',
+        // Practices
+        cropRotation: 'Crop Rotation',
+        cropRotationDesc: 'Rotate crops annually to maintain soil fertility and reduce pest buildup',
+        organicFarming: 'Organic Farming',
+        organicFarmingDesc: 'Use natural fertilizers and pest control methods',
+        waterConservation: 'Water Conservation',
+        waterConservationDesc: 'Efficient irrigation techniques to save water',
+        mixedCropping: 'Mixed Cropping',
+        mixedCroppingDesc: 'Grow multiple crops together for better yields',
+        // Filter tabs
+        vegetablesTab: 'Vegetables',
+        fruitsTab: 'Fruits',
+        grainsTab: 'Grains',
+        // Market Screen
+        liveMarketPrices: 'Live Market Prices',
+        topGainers: 'Top Gainers',
+        topLosers: 'Top Losers',
+        marketStatus: 'Market Status',
+        totalCrops: 'Total Crops',
+        activeMarkets: 'Active Markets',
+        lastUpdate: 'Last Update',
+        priceCategories: 'Price Categories',
+        allCrops: 'All Crops',
+        pulses: 'Pulses',
+        commercial: 'Commercial',
+        livePrices: 'Live Prices',
+        pause: 'Pause',
+        sortByName: 'Sort by Name',
+        sortByPrice: 'Sort by Price',
+        sortByChange: 'Sort by Change',
+        crop: 'Crop',
+        currentPrice: 'Current Price',
+        change: 'Change',
+        percentChange: '% Change',
+        trend: 'Trend',
+        market: 'Market',
+        priceTrends: 'Price Trends',
+        top5CropsPerformance: 'Top 5 Crops Performance',
+        marketOverview: 'Market Overview',
+        gainers: 'Gainers',
+        losers: 'Losers',
+        unchanged: 'Unchanged',
+        marketUpdates: 'Market Updates',
+        // Profile
+        profile: 'Profile',
+        userProfile: 'User Profile',
+        // Bottom Nav
+        dashboard: 'Dashboard',
+        scanner: 'Scanner',
+        market: 'Market',
+        health: 'Health',
+        crop: 'Crop',
+        // Image capture message
+        imageCaptured: 'Image captured successfully! Click "AI Analyze Soil" for plant recommendations.',
+        firstScanLeaf: 'First scan the plant leaf',
+        // Practice examples
+        compost: 'Compost',
+        greenManure: 'Green Manure',
+        biopesticides: 'Biopesticides',
+        dripIrrigation: 'Drip Irrigation',
+        sprinklerSystems: 'Sprinkler Systems',
+        rainwaterHarvesting: 'Rainwater Harvesting',
+        rowIntercropping: 'Row Intercropping',
+        borderCropping: 'Border Cropping',
+        alleyCropping: 'Alley Cropping',
+        // Plant Card Labels
+        unknownPlant: 'Unknown Plant',
+        noDescription: 'No description available',
+        soilRequirements: 'Soil Requirements',
+        growingSteps: 'Growing Steps',
+        careInstructions: 'Care Instructions',
+        growingPeriod: 'Growing Period',
+        difficulty: 'Difficulty',
+        successRate: 'Success Rate',
+        days: 'days',
+        easy: 'Easy',
+        medium: 'Medium',
+        hard: 'Hard'
     },
     hi: {
         dashboardTitle: 'खेत डैशबोर्ड',
@@ -84,7 +211,134 @@ const translations = {
         searchPlaceholder: 'पौधे, कीटनाशक या समस्याएं खोजें...',
         allPlants: 'सभी पौधे',
         completePlantCareGuide: 'पूर्ण पौधा देखभाल गाइड',
-        commonPesticides: 'सामान्य कीटनाशक और समाधान'
+        commonPesticides: 'सामान्य कीटनाशक और समाधान',
+        // Weather
+        sunny: 'धूप',
+        lightBreeze: 'हल्की हवा',
+        humidity: 'नमी',
+        monsoonAlert: '3 दिनों में मॉनसून संभावित',
+        today: 'आज',
+        tomorrow: 'कल',
+        dayAfter: 'परसों',
+        thursday: 'गुरुवार',
+        friday: 'शुक्रवार',
+        // Soil Analysis Labels
+        soilType: 'मिट्टी का प्रकार',
+        phLevel: 'pH स्तर',
+        texture: 'बनावट',
+        color: 'रंग',
+        moisture: 'नमी',
+        nutrients: 'पोषक तत्व',
+        analysisConfidence: 'विश्लेषण विश्वास',
+        // History
+        viewDetails: 'विवरण देखें',
+        scanAgain: 'फिर से स्कैन करें',
+        complete: 'पूर्ण',
+        ongoing: 'जारी',
+        accuracy: 'सटीकता',
+        // Crop Categories descriptions
+        vegetablesDesc: 'दैनिक पोषण और बाजार बिक्री के लिए ताजा उत्पाद',
+        fruitTreesDesc: 'उच्च रिटर्न के साथ दीर्घकालिक निवेश',
+        fieldCropsDesc: 'खाद्य सुरक्षा के लिए मुख्य अनाज',
+        legumesDesc: 'मिट्टी स्वास्थ्य के लिए प्रोटीन-समृद्ध फसलें',
+        // Seasonal crops
+        recommendedCrops: 'अनुशंसित फसलें',
+        // Tools
+        yieldCalculator: 'उपज कैलकुलेटर',
+        yieldCalculatorDesc: 'खेत के आकार और फसल के प्रकार के आधार पर संभावित फसल उपज का अनुमान लगाएं',
+        calculate: 'गणना करें',
+        cropCalendar: 'फसल कैलेंडर',
+        cropCalendarDesc: 'अपनी रोपण और कटाई अनुसूची की योजना बनाएं',
+        viewCalendar: 'कैलेंडर देखें',
+        advancedMachines: 'उन्नत मशीनें',
+        advancedMachinesDesc: 'आधुनिक खेती उपकरण और तकनीक',
+        viewMachines: 'मशीनें देखें',
+        oldMachines: 'पुरानी मशीनें',
+        oldMachinesDesc: 'पारंपरिक खेती उपकरण',
+        waterSupply: 'जल आपूर्ति',
+        waterSupplyDesc: 'सिंचाई और जल प्रबंधन प्रणाली',
+        viewSystems: 'प्रणाली देखें',
+        waterRequirements: 'जल आवश्यकताएं',
+        waterRequirementsDesc: 'विभिन्न फसलों के लिए सिंचाई की आवश्यकता',
+        viewGuide: 'गाइड देखें',
+        // Practices
+        cropRotation: 'फसल चक्र',
+        cropRotationDesc: 'मिट्टी की उर्वरा बनाए रखने और कीट निर्माण को कम करने के लिए फसलों का वार्षिक चक्र',
+        organicFarming: 'जैविक खेती',
+        organicFarmingDesc: 'प्राकृतिक खाद और कीट नियंत्रण विधियों का उपयोग करें',
+        waterConservation: 'जल संरक्षण',
+        waterConservationDesc: 'पानी बचाने के लिए कुशल सिंचाई तकनीक',
+        mixedCropping: 'मिश्रित फसल',
+        mixedCroppingDesc: 'बेहतर उपज के लिए एक साथ कई फसलें उगाएं',
+        // Filter tabs
+        vegetablesTab: 'सब्जियां',
+        fruitsTab: 'फल',
+        grainsTab: 'अनाज',
+        // Market Screen
+        liveMarketPrices: 'लाइव बाजार भाव',
+        topGainers: 'शीर्ष लाभ',
+        topLosers: 'शीर्ष हानि',
+        marketStatus: 'बाजार स्थिति',
+        totalCrops: 'कुल फसलें',
+        activeMarkets: 'सक्रिय बाजार',
+        lastUpdate: 'अंतिम अपडेट',
+        priceCategories: 'मूल्य श्रेणियां',
+        allCrops: 'सभी फसलें',
+        pulses: 'दालें',
+        commercial: 'वाणिज्यिक',
+        livePrices: 'लाइव मूल्य',
+        pause: 'रोकें',
+        sortByName: 'नाम से क्रमबद्ध करें',
+        sortByPrice: 'मूल्य से क्रमबद्ध करें',
+        sortByChange: 'परिवर्तन से क्रमबद्ध करें',
+        crop: 'फसल',
+        currentPrice: 'वर्तमान मूल्य',
+        change: 'परिवर्तन',
+        percentChange: '% परिवर्तन',
+        trend: 'रुझान',
+        market: 'बाजार',
+        priceTrends: 'मूल्य रुझान',
+        top5CropsPerformance: 'शीर्ष 5 फसलों का प्रदर्शन',
+        marketOverview: 'बाजार अवलोकन',
+        gainers: 'लाभ',
+        losers: 'हानि',
+        unchanged: 'अपरिवर्तित',
+        marketUpdates: 'बाजार अपडेट',
+        // Profile
+        profile: 'प्रोफाइल',
+        userProfile: 'उपयोगकर्ता प्रोफाइल',
+        // Bottom Nav
+        dashboard: 'डैशबोर्ड',
+        scanner: 'स्कैनर',
+        market: 'बाजार',
+        health: 'स्वास्थ्य',
+        crop: 'फसल',
+        // Image capture message
+        imageCaptured: 'छवि सफलतापूर्वक कैप्चर की गई! पौधे की सिफारिशों के लिए "AI मिट्टी विश्लेषण" पर क्लिक करें।',
+        firstScanLeaf: 'पहले पौधे की पत्ती को स्कैन करें',
+        // Practice examples
+        compost: 'कंपोस्ट',
+        greenManure: 'हरी खाद',
+        biopesticides: 'बायोपेस्टिसाइड',
+        dripIrrigation: 'टपक सिंचाई',
+        sprinklerSystems: 'स्प्रिंकलर सिस्टम',
+        rainwaterHarvesting: 'वर्षा जल संचयन',
+        rowIntercropping: 'पंक्ति अंतर-फसल',
+        borderCropping: 'सीमा फसल',
+        alleyCropping: 'गली फसल',
+        // Plant Card Labels
+        unknownPlant: 'अज्ञात पौधा',
+        noDescription: 'कोई विवरण उपलब्ध नहीं',
+        soilRequirements: 'मिट्टी की आवश्यकताएं',
+        growingSteps: 'उगाने के चरण',
+        careInstructions: 'देखभाल निर्देश',
+        growingPeriod: 'विकास अवधि',
+        difficulty: 'कठिनाई',
+        successRate: 'सफलता दर',
+        days: 'दिन',
+        easy: 'आसान',
+        medium: 'मध्यम',
+        hard: 'कठिन'
     }
 };
 
@@ -121,6 +375,19 @@ function applyTranslations() {
     const todaysWeather = document.querySelector('.weather-header h2');
     if (todaysWeather) todaysWeather.textContent = t.todaysWeather;
     
+    // Weather details
+    const weatherPs = document.querySelectorAll('.weather-header p');
+    if (weatherPs[0]) weatherPs[0].textContent = `${t.sunny}, ${t.lightBreeze}`;
+    if (weatherPs[1]) weatherPs[1].textContent = `${t.humidity}: 65%`;
+    if (weatherPs[2]) weatherPs[2].textContent = t.monsoonAlert;
+    
+    // Forecast days
+    const forecastDays = document.querySelectorAll('.forecast-day span:nth-child(2)');
+    const dayNames = [t.today, t.tomorrow, t.dayAfter, t.thursday, t.friday];
+    forecastDays.forEach((day, index) => {
+        if (dayNames[index]) day.textContent = dayNames[index];
+    });
+    
     const marketPrices = document.querySelector('.crop-prices h2');
     if (marketPrices) marketPrices.textContent = t.marketPrices;
     
@@ -138,11 +405,15 @@ function applyTranslations() {
     if (pesticideGuideBtn) pesticideGuideBtn.textContent = t.pesticideGuide;
     
     // Notifications
-    const notificationHeader = document.querySelector('.notification-header h3');
-    if (notificationHeader) notificationHeader.textContent = t.notifications;
+    const notificationHeaders = document.querySelectorAll('.notification-header h3');
+    notificationHeaders.forEach(header => {
+        if (header.textContent === 'Notifications' || header.textContent === 'सूचनाएं') {
+            header.textContent = t.notifications;
+        }
+    });
     
-    const clearAllBtn = document.querySelector('.clear-all-btn');
-    if (clearAllBtn) clearAllBtn.textContent = t.clearAll;
+    const clearAllBtns = document.querySelectorAll('.clear-all-btn');
+    clearAllBtns.forEach(btn => btn.textContent = t.clearAll);
     
     // Scanner Screen
     const scannerTitle = document.querySelector('#scanner-screen h1');
@@ -166,7 +437,24 @@ function applyTranslations() {
     const uploadBtn = document.getElementById('upload-btn');
     if (uploadBtn) uploadBtn.textContent = t.uploadSoilImage;
     
-    // Results Tab
+    // Image capture message
+    const imageInfo = document.querySelector('.image-info p');
+    if (imageInfo) imageInfo.textContent = t.imageCaptured;
+    
+    // Treatment tab placeholder
+    const scanPlaceholder = document.querySelector('.scan-placeholder p');
+    if (scanPlaceholder) scanPlaceholder.textContent = t.firstScanLeaf;
+    
+    // Results Tab - Soil Analysis Labels
+    const soilLabels = document.querySelectorAll('.soil-info-item .label');
+    const labelKeys = [t.soilType, t.phLevel, t.texture, t.color, t.moisture, t.nutrients];
+    soilLabels.forEach((label, index) => {
+        if (labelKeys[index]) label.textContent = labelKeys[index];
+    });
+    
+    const confidenceLabel = document.querySelector('.confidence-score .label');
+    if (confidenceLabel) confidenceLabel.textContent = t.analysisConfidence;
+    
     const soilAnalysisResults = document.querySelector('.soil-summary-card h2');
     if (soilAnalysisResults) soilAnalysisResults.textContent = t.soilAnalysisResults;
     
@@ -177,10 +465,36 @@ function applyTranslations() {
     const historyHeader = document.querySelector('.history-header h2');
     if (historyHeader) historyHeader.textContent = t.scanHistory;
     
+    const clearHistoryBtn = document.querySelector('.clear-history-btn');
+    if (clearHistoryBtn) {
+        clearHistoryBtn.innerHTML = `<i class="fas fa-trash"></i> ${t.clearAll}`;
+    }
+    
     const statLabels = document.querySelectorAll('.stat-label');
     statLabels.forEach((label, index) => {
         const labels = [t.totalScans, t.completeTreatments, t.ongoingTreatment];
         if (labels[index]) label.textContent = labels[index];
+    });
+    
+    // Disease card buttons
+    const actionBtns = document.querySelectorAll('.action-btn');
+    actionBtns.forEach(btn => {
+        if (btn.textContent === 'View Details' || btn.textContent === 'विवरण देखें') {
+            btn.textContent = t.viewDetails;
+        }
+        if (btn.textContent === 'Scan Again' || btn.textContent === 'फिर से स्कैन करें') {
+            btn.textContent = t.scanAgain;
+        }
+    });
+    
+    const statusSpans = document.querySelectorAll('.status');
+    statusSpans.forEach(span => {
+        if (span.textContent === 'Complete' || span.textContent === 'पूर्ण') {
+            span.textContent = t.complete;
+        }
+        if (span.textContent === 'Ongoing' || span.textContent === 'जारी') {
+            span.textContent = t.ongoing;
+        }
     });
     
     // Crop Screen
@@ -196,6 +510,13 @@ function applyTranslations() {
         if (categoryNames[index]) card.textContent = categoryNames[index];
     });
     
+    // Category descriptions
+    const categoryDescs = document.querySelectorAll('.category-card p');
+    const descKeys = [t.vegetablesDesc, t.fruitTreesDesc, t.fieldCropsDesc, t.legumesDesc];
+    categoryDescs.forEach((desc, index) => {
+        if (descKeys[index]) desc.textContent = descKeys[index];
+    });
+    
     const seasonalGuide = document.querySelector('.seasonal-guide h2');
     if (seasonalGuide) seasonalGuide.textContent = t.seasonalPlantingGuide;
     
@@ -205,11 +526,59 @@ function applyTranslations() {
         if (seasonNames[index]) header.textContent = seasonNames[index];
     });
     
+    const seasonCropHeaders = document.querySelectorAll('.season-crops h4');
+    seasonCropHeaders.forEach(header => {
+        header.textContent = t.recommendedCrops;
+    });
+    
     const cropTools = document.querySelector('.crop-tools h2');
     if (cropTools) cropTools.textContent = t.cropPlanningTools;
     
+    // Tool cards
+    const toolCards = document.querySelectorAll('.tool-card h3');
+    const toolNames = [t.yieldCalculator, t.cropCalendar, t.advancedMachines, t.oldMachines, t.waterSupply, t.waterRequirements];
+    toolCards.forEach((card, index) => {
+        if (toolNames[index]) card.textContent = toolNames[index];
+    });
+    
+    const toolDescs = document.querySelectorAll('.tool-card p');
+    const toolDescKeys = [t.yieldCalculatorDesc, t.cropCalendarDesc, t.advancedMachinesDesc, t.oldMachinesDesc, t.waterSupplyDesc, t.waterRequirementsDesc];
+    toolDescs.forEach((desc, index) => {
+        if (toolDescKeys[index]) desc.textContent = toolDescKeys[index];
+    });
+    
+    const toolBtns = document.querySelectorAll('.tool-btn');
+    const toolBtnTexts = [t.calculate, t.viewCalendar, t.viewMachines, t.viewMachines, t.viewSystems, t.viewGuide];
+    toolBtns.forEach((btn, index) => {
+        if (toolBtnTexts[index]) btn.textContent = toolBtnTexts[index];
+    });
+    
     const bestPractices = document.querySelector('.best-practices h2');
     if (bestPractices) bestPractices.textContent = t.sustainableFarming;
+    
+    // Practice cards
+    const practiceCards = document.querySelectorAll('.practice-card h3');
+    const practiceNames = [t.cropRotation, t.organicFarming, t.waterConservation, t.mixedCropping];
+    practiceCards.forEach((card, index) => {
+        if (practiceNames[index]) card.textContent = practiceNames[index];
+    });
+    
+    const practiceDescs = document.querySelectorAll('.practice-card p');
+    const practiceDescKeys = [t.cropRotationDesc, t.organicFarmingDesc, t.waterConservationDesc, t.mixedCroppingDesc];
+    practiceDescs.forEach((desc, index) => {
+        if (practiceDescKeys[index]) desc.textContent = practiceDescKeys[index];
+    });
+    
+    // Practice examples
+    const practiceExamples = document.querySelectorAll('.practice-examples span');
+    const exampleKeys = [
+        t.compost, t.greenManure, t.biopesticides,
+        t.dripIrrigation, t.sprinklerSystems, t.rainwaterHarvesting,
+        t.rowIntercropping, t.borderCropping, t.alleyCropping
+    ];
+    practiceExamples.forEach((example, index) => {
+        if (exampleKeys[index]) example.textContent = exampleKeys[index];
+    });
     
     // Health Screen
     const healthTitle = document.querySelector('#health-screen h1');
@@ -220,7 +589,11 @@ function applyTranslations() {
     
     const filterTabs = document.querySelectorAll('.filter-tab');
     filterTabs.forEach(tab => {
-        if (tab.textContent === 'All Plants') tab.textContent = t.allPlants;
+        const tabText = tab.textContent;
+        if (tabText === 'All Plants' || tabText === 'सभी पौधे') tab.textContent = t.allPlants;
+        if (tabText === 'Vegetables' || tabText === 'सब्जियां') tab.textContent = t.vegetablesTab;
+        if (tabText === 'Fruits' || tabText === 'फल') tab.textContent = t.fruitsTab;
+        if (tabText === 'Grains' || tabText === 'अनाज') tab.textContent = t.grainsTab;
     });
     
     const plantGuideSection = document.querySelector('.plant-guide-section h2');
@@ -228,6 +601,91 @@ function applyTranslations() {
     
     const pesticideSection = document.querySelector('.pesticide-section h2');
     if (pesticideSection) pesticideSection.textContent = t.commonPesticides;
+    
+    // Market Screen
+    const marketTitle = document.querySelector('#market-screen h1');
+    if (marketTitle) marketTitle.textContent = t.liveMarketPrices;
+    
+    const topGainers = document.querySelector('.gainers .card-header h3');
+    if (topGainers) topGainers.textContent = t.topGainers;
+    
+    const topLosers = document.querySelector('.losers .card-header h3');
+    if (topLosers) topLosers.textContent = t.topLosers;
+    
+    const marketStatus = document.querySelector('.active .card-header h3');
+    if (marketStatus) marketStatus.textContent = t.marketStatus;
+    
+    const marketStatusLabels = document.querySelectorAll('.market-status .label');
+    const statusLabelKeys = [t.totalCrops, t.activeMarkets, t.lastUpdate];
+    marketStatusLabels.forEach((label, index) => {
+        if (statusLabelKeys[index]) label.textContent = statusLabelKeys[index];
+    });
+    
+    const priceCategories = document.querySelector('.price-categories h2');
+    if (priceCategories) priceCategories.textContent = t.priceCategories;
+    
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    categoryTabs.forEach(tab => {
+        const tabText = tab.textContent;
+        if (tabText === 'All Crops' || tabText === 'सभी फसलें') tab.textContent = t.allCrops;
+        if (tabText === 'Grains' || tabText === 'अनाज') tab.textContent = t.grainsTab;
+        if (tabText === 'Vegetables' || tabText === 'सब्जियां') tab.textContent = t.vegetablesTab;
+        if (tabText === 'Pulses' || tabText === 'दालें') tab.textContent = t.pulses;
+        if (tabText === 'Commercial' || tabText === 'वाणिज्यिक') tab.textContent = t.commercial;
+    });
+    
+    const livePrices = document.querySelector('.live-prices-section h2');
+    if (livePrices) livePrices.textContent = t.livePrices;
+    
+    const autoUpdateText = document.getElementById('auto-update-text');
+    if (autoUpdateText) autoUpdateText.textContent = t.pause;
+    
+    const sortOptions = document.querySelectorAll('#sort-select option');
+    sortOptions.forEach(option => {
+        const optText = option.value;
+        if (optText === 'name') option.textContent = t.sortByName;
+        if (optText === 'price') option.textContent = t.sortByPrice;
+        if (optText === 'change') option.textContent = t.sortByChange;
+    });
+    
+    // Table headers
+    const tableHeaders = document.querySelectorAll('.prices-table th');
+    const headerKeys = [t.crop, t.currentPrice, t.change, t.percentChange, t.trend, t.market];
+    tableHeaders.forEach((header, index) => {
+        if (headerKeys[index]) header.textContent = headerKeys[index];
+    });
+    
+    const priceTrends = document.querySelector('.price-charts h2');
+    if (priceTrends) priceTrends.textContent = t.priceTrends;
+    
+    const top5Crops = document.querySelector('.chart-card h3');
+    if (top5Crops) top5Crops.textContent = t.top5CropsPerformance;
+    
+    const marketOverview = document.querySelectorAll('.chart-card h3')[1];
+    if (marketOverview) marketOverview.textContent = t.marketOverview;
+    
+    const summaryLabels = document.querySelectorAll('.summary-item .label');
+    const summaryKeys = [t.gainers, t.losers, t.unchanged];
+    summaryLabels.forEach((label, index) => {
+        if (summaryKeys[index]) label.textContent = summaryKeys[index];
+    });
+    
+    const marketUpdates = document.querySelector('.market-news h2');
+    if (marketUpdates) marketUpdates.textContent = t.marketUpdates;
+    
+    // Profile Screen
+    const profileTitle = document.querySelector('#profile-screen h1');
+    if (profileTitle) profileTitle.textContent = t.profile;
+    
+    const userProfile = document.querySelector('.placeholder-content p');
+    if (userProfile) userProfile.textContent = t.userProfile;
+    
+    // Bottom Navigation
+    const navItems = document.querySelectorAll('.nav-item span');
+    const navKeys = [t.dashboard, t.scanner, t.market, t.health, t.crop];
+    navItems.forEach((item, index) => {
+        if (navKeys[index]) item.textContent = navKeys[index];
+    });
 }
 
 // Initialize language from localStorage
@@ -1078,36 +1536,45 @@ function createPlantCard(plant) {
     card.className = 'plant-card';
     
     const difficultyClass = plant.difficulty ? plant.difficulty.toLowerCase() : 'medium';
+    const t = translations[currentLanguage];
+    
+    // Translate difficulty
+    let difficultyText = plant.difficulty || 'Medium';
+    if (currentLanguage === 'hi') {
+        if (difficultyText.toLowerCase() === 'easy') difficultyText = t.easy;
+        else if (difficultyText.toLowerCase() === 'medium') difficultyText = t.medium;
+        else if (difficultyText.toLowerCase() === 'hard') difficultyText = t.hard;
+    }
     
     card.innerHTML = `
-        <h4>${plant.plantName || 'Unknown Plant'}</h4>
+        <h4>${plant.plantName || t.unknownPlant}</h4>
         <div class="scientific-name">${plant.scientificName || 'N/A'}</div>
-        <div class="description">${plant.description || 'No description available'}</div>
+        <div class="description">${plant.description || t.noDescription}</div>
         <div class="soil-requirements">
-            <strong>Soil Requirements:</strong> ${plant.soilRequirements || 'N/A'}
+            <strong>${t.soilRequirements}:</strong> ${plant.soilRequirements || 'N/A'}
         </div>
         
         <div class="growing-steps">
-            <h5>Growing Steps:</h5>
+            <h5>${t.growingSteps}:</h5>
             <ul class="steps-list">
                 ${(plant.growingSteps || []).map(step => `<li>${step}</li>`).join('')}
             </ul>
         </div>
         
         <div class="care-instructions">
-            <h5>Care Instructions:</h5>
+            <h5>${t.careInstructions}:</h5>
             <ul class="care-list">
                 ${(plant.careInstructions || []).map(instruction => `<li>${instruction}</li>`).join('')}
             </ul>
         </div>
-        
+
         <div class="plant-meta">
             <div class="period">
                 <i class="fas fa-clock"></i>
-                ${plant.growingPeriodDays || 'N/A'} days
+                ${plant.growingPeriodDays || 'N/A'} ${t.days}
             </div>
             <div class="difficulty ${difficultyClass}">
-                ${plant.difficulty || 'Medium'}
+                ${difficultyText}
             </div>
             <div class="success-rate">
                 <i class="fas fa-chart-line"></i>
@@ -1115,7 +1582,7 @@ function createPlantCard(plant) {
             </div>
         </div>
     `;
-    
+
     return card;
 }
 
